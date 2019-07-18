@@ -18,8 +18,29 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oJ5-kn-tSK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
+                    </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gAF-xQ-QPd">
+                        <rect key="frame" x="141.5" y="47.5" width="37" height="37"/>
+                        <color key="color" red="0.0" green="0.02672533321" blue="0.8774647713" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oJ5-kn-tSK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0p7-Yv-KUt"/>
+                    <constraint firstItem="gAF-xQ-QPd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KOl-Ho-KdT"/>
+                    <constraint firstItem="oJ5-kn-tSK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OfS-gs-Cll"/>
+                    <constraint firstItem="gAF-xQ-QPd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ahB-eM-8xW"/>
+                    <constraint firstItem="oJ5-kn-tSK" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="et2-Ob-oLO"/>
+                    <constraint firstItem="oJ5-kn-tSK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="nhx-H2-ta7"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="indicator" destination="gAF-xQ-QPd" id="DTL-rI-XUK"/>
+                <outlet property="photoImageView" destination="oJ5-kn-tSK" id="Pbx-Tg-5yx"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="64.955357142857139"/>
         </tableViewCell>
     </objects>

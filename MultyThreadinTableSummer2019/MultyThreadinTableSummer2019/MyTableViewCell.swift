@@ -10,15 +10,30 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	@IBOutlet weak var indicator: UIActivityIndicatorView!
+	@IBOutlet weak var photoImageView: UIImageView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	private var path: String?
 
-        // Configure the view for the selected state
-    }
-    
+	override func prepareForReuse() {
+		photoImageView.image = nil
+	}
+
+	func configure(path: String) {
+		self.path = path
+		indicator.startAnimating()
+
+		DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+			if let url = URL(string: path),
+				let data = try? Data(contentsOf: url),
+				let image = UIImage(data: data),
+				path == self?.path {
+
+				DispatchQueue.main.async {
+					self?.photoImageView.image = image
+					self?.indicator.stopAnimating()
+				}
+			}
+		}
+	}
 }
